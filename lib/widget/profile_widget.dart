@@ -35,12 +35,12 @@ class ProfileWidget extends StatelessWidget {
 
     return ClipOval(
       child: Material(
-        color: Colors.transparent,
+        color: Colors.grey.shade400,
         child: Ink.image(
           image: image,
           fit: BoxFit.cover,
-          width: 128,
-          height: 128,
+          width: 100,
+          height: 100,
           child: InkWell(onTap: onClicked),
         ),
       ),
@@ -52,11 +52,11 @@ class ProfileWidget extends StatelessWidget {
         all: 3,
         child: buildCircle(
           color: color,
-          all: 8,
+          all: 6,
           child: Icon(
             Icons.edit,
             color: Colors.white,
-            size: 20,
+            size: 15,
           ),
         ),
       );
@@ -69,7 +69,7 @@ class ProfileWidget extends StatelessWidget {
       ClipOval(
         child: Container(
           padding: EdgeInsets.all(all),
-          color: color,
+          color: Colors.orange.shade400,
           child: child,
         ),
       );

@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.blue.shade300,
+        primaryColor: Colors.orange.shade700,
         dividerColor: Colors.black,
       ),
       title: title,
