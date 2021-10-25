@@ -16,32 +16,10 @@ class bookmarked_recipes extends StatelessWidget {
           )).toList(),
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 200,
-        childAspectRatio: 3 / 2,
+        childAspectRatio: 1 / 2,
         crossAxisSpacing: 20,
         mainAxisSpacing: 20,
       ),
     );
   }
-
-// button
-  // return GridView(
-  //   padding: EdgeInsets.all(25),
-  //   children: [
-  //     ElevatedButton(
-  //       onPressed: () {},
-  //       child: Text('Default CookBook'),
-  //       style: ElevatedButton.styleFrom(
-  //         shape: CircleBorder(),
-  //         padding: EdgeInsets.all(24),
-  //       ),
-  //     )
-  //   ],
-  //   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-  //     maxCrossAxisExtent: 200,
-  //     childAspectRatio: 3 / 2,
-  //     crossAxisSpacing: 20,
-  //     mainAxisSpacing: 20,
-  //   ),
-  // );
-
 }

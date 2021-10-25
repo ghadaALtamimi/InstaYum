@@ -4,10 +4,12 @@ import 'package:user_profile_example/page/profile_page.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
+  await SystemChrome.setPreferredOrientations(
+    [
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ],
+  );
 
   runApp(MyApp());
 }
@@ -18,12 +20,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // remove the debug banner in default  flutter project
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.orange.shade700,
         dividerColor: Colors.black,
       ),
-      title: title,
+
       home: ProfilePage(),
     );
   }

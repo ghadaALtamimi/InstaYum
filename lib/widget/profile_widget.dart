@@ -14,12 +14,15 @@ class ProfileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // to assign color to the widgets  without effecting the current theme of the app
     final color = Theme.of(context).colorScheme.primary;
 
     return Center(
       child: Stack(
         children: [
+          // here we invoke the build image.
           buildImage(),
+          // make the edit icon next to profile image
           Positioned(
             bottom: 0,
             right: 4,
@@ -30,6 +33,7 @@ class ProfileWidget extends StatelessWidget {
     );
   }
 
+  // build and design the user profile image
   Widget buildImage() {
     final image = NetworkImage(imagePath);
 
@@ -39,20 +43,25 @@ class ProfileWidget extends StatelessWidget {
         child: Ink.image(
           image: image,
           fit: BoxFit.cover,
+          // size of the image
           width: 100,
           height: 100,
+          // make the image clickable
           child: InkWell(onTap: onClicked),
         ),
       ),
     );
   }
 
+  // build and design the icon of edit picture action in spreate widget
   Widget buildEditIcon(Color color) => buildCircle(
         color: Colors.white,
         all: 3,
         child: buildCircle(
+          // use the color in theme to color the Circle (orange)
           color: color,
           all: 6,
+          // add the icon
           child: Icon(
             Icons.edit,
             color: Colors.white,
