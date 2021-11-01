@@ -7,13 +7,13 @@ class ShoppingListPage extends StatefulWidget {
 }
 
 class ShoppingListState extends State<ShoppingListPage> {
-  bool outvalue = false;
+  bool outvalue = false; //outvalue is change the state of check list
   var checkedstyle = TextDecoration.none;
   var listOfIngrediant = [
     checkboxState(title: "Milk"),
-    checkboxState(title: "eggs"),
-    checkboxState(title: "cream"),
-    checkboxState(title: "sugar"),
+    checkboxState(title: "Eggs"),
+    checkboxState(title: "Cream"),
+    checkboxState(title: "Sugar"),
   ];
   @override
   Widget build(BuildContext context) {
