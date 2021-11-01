@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         builder: (context, appSnapshot) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
+            title: 'InstaYum',
             theme: ThemeData(
               //primarySwatch: Colors.orangeAccent,
               backgroundColor: Color(0xFFeb6d44),

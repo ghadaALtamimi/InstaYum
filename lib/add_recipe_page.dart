@@ -10,8 +10,8 @@ class addRecipePage extends StatefulWidget {
 class addRecipe extends State<addRecipePage> {
   //var dropdownValue;
   bool isSwitched = false;
-  //-----
-  var recipeType = ['lunch', 'dinner', 'breakfast'];
+  //-----------------------list componint of dropdown list-----------------
+  var recipeType = ['Breakfast', 'Lunch', 'Dinner'];
   var cuisine = [
     'Asian',
     'Indian',
@@ -31,12 +31,12 @@ class addRecipe extends State<addRecipePage> {
     'Salads',
     'Desserts',
     'Drinks',
-    'appetizers'
+    'Appetizers'
   ];
   var cusinurentSelectedValue = 'Asian';
   var CategorycurentSelectedValue = 'Main course';
-  var curentSelectedValue = 'lunch';
-  //------
+  var curentSelectedValue = 'Lunch';
+  //-----------------------------------
   bool value = false;
   @override
   Widget build(BuildContext context) {
@@ -122,7 +122,7 @@ class addRecipe extends State<addRecipePage> {
                             fit: FlexFit.loose,
                             child: ElevatedButton(
                               onPressed: () {},
-                              child: Text('add more ingredient'),
+                              child: Text('Add more ingredient'),
                               style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(
                                     Color(0xFFeb6d44)),
@@ -149,7 +149,7 @@ class addRecipe extends State<addRecipePage> {
 
                   //color: Colors.white,
                   child: Text(
-                    "ingredients",
+                    "Ingredients",
                     style: TextStyle(
                       backgroundColor: Colors.grey[50],
                       fontSize: 17,
@@ -201,7 +201,7 @@ class addRecipe extends State<addRecipePage> {
                             fit: FlexFit.loose,
                             child: ElevatedButton(
                               onPressed: () {},
-                              child: Text('add more direction'),
+                              child: Text('Add more direction'),
                               style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(
                                     Color(0xFFeb6d44)),
@@ -228,7 +228,7 @@ class addRecipe extends State<addRecipePage> {
 
                   //color: Colors.white,
                   child: Text(
-                    "direction",
+                    "Direction",
                     style: TextStyle(
                       backgroundColor: Colors.grey[50],
                       fontSize: 17,
@@ -256,7 +256,7 @@ class addRecipe extends State<addRecipePage> {
               child: ListView(
                 children: [
                   //------1--------------
-                  Text("     Type:"),
+                  Text("     Type of meal:"),
                   Container(
                     margin: EdgeInsets.only(bottom: 15, left: 50, right: 50),
                     alignment: Alignment.center,
@@ -298,7 +298,7 @@ class addRecipe extends State<addRecipePage> {
                   ),
 
                   //----dropdown--2--------
-                  Text("     category:"),
+                  Text("     Category:"),
                   Container(
                     margin: EdgeInsets.only(bottom: 15, left: 50, right: 50),
                     alignment: Alignment.center,
@@ -339,7 +339,7 @@ class addRecipe extends State<addRecipePage> {
                     ),
                   ),
                   //---------------3------------------
-                  Text("     cuisine:"),
+                  Text("     Cuisine:"),
                   Container(
                     margin: EdgeInsets.only(bottom: 15, left: 50, right: 50),
                     alignment: Alignment.center,
@@ -383,19 +383,19 @@ class addRecipe extends State<addRecipePage> {
                   Container(
                     child: Row(
                       children: [
-                        Text("      praivet"),
+                        Text("      Praivet"),
                         Switch(
                           value: isSwitched,
                           onChanged: (value) {
                             setState(() {
                               isSwitched = value;
-                              print(isSwitched);
+                              //print(isSwitched);
                             });
                           },
                           activeTrackColor: Colors.orange[600],
                           activeColor: Color(0xFFeb6d44),
                         ),
-                        Text("      public"),
+                        Text("      Public"),
                       ],
                     ),
                   ),
@@ -410,7 +410,7 @@ class addRecipe extends State<addRecipePage> {
 
                   //color: Colors.white,
                   child: Text(
-                    "classifications",
+                    "Classifications",
                     style: TextStyle(
                       backgroundColor: Colors.grey[50],
                       fontSize: 17,

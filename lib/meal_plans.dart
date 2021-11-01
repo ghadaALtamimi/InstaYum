@@ -23,10 +23,10 @@ class MealPlansState extends State<MealPlans> {
                   DataColumn(label: Text('DAY')),
                   DataColumn(
                       label: Text(
-                    'breakfast',
+                    'Breakfast',
                   )),
-                  DataColumn(label: Text('lunch')),
-                  DataColumn(label: Text('dinner'))
+                  DataColumn(label: Text('Lunch')),
+                  DataColumn(label: Text('Dinner'))
                 ],
                 rows: [
                   DataRow(cells: [

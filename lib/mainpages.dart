@@ -20,7 +20,7 @@ class MainPages extends StatefulWidget {
 }
 
 class appPages extends State<MainPages> {
-  var appBarTitel = "profile";
+  var appBarTitel = "Profile";
   int indexOfPages = 4;
   List<Widget> _listOfPagesContent = [
     //---------discover page  0-------------
@@ -35,6 +35,8 @@ class appPages extends State<MainPages> {
     ProfilePage(),
   ];
   void change(int index) {
+    //this fun will change  app bar titel depend on sent
+    // index and will change current page
     setState(() {
       indexOfPages = index;
       if (index == 0)
@@ -42,7 +44,7 @@ class appPages extends State<MainPages> {
       else if (index == 3)
         appBarTitel = "Shopping List";
       else if (index == 2)
-        appBarTitel = "Add recipe";
+        appBarTitel = "Add Recipe";
       else if (index == 1)
         appBarTitel = "Meal Plan";
       else
@@ -153,18 +155,19 @@ class appPages extends State<MainPages> {
           selectedItemColor: Color(0xFFeb6d44),
           unselectedItemColor: Colors.grey[600],
           currentIndex: indexOfPages,
-          onTap: change,
+          onTap:
+              change, //it will call fun change and send index of clicked below button
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.saved_search_sharp), label: "discover"),
+                icon: Icon(Icons.saved_search_sharp), label: "Discover"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.table_view), label: "meal planner"),
+                icon: Icon(Icons.table_view), label: "Meal Planner"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.add_sharp), label: "add recipe"),
+                icon: Icon(Icons.add_sharp), label: "Add Recipe"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_bag), label: "sopping list"),
+                icon: Icon(Icons.shopping_bag), label: "Shopping List"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.account_box_sharp), label: "profile"),
+                icon: Icon(Icons.account_box_sharp), label: "Profile"),
           ],
         ),
       ),

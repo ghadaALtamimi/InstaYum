@@ -11,7 +11,7 @@ class ShoppingListState extends State<ShoppingListPage> {
   var checkedstyle = TextDecoration.none;
   var listOfIngrediant = [
     checkboxState(title: "Milk"),
-    checkboxState(title: "eags"),
+    checkboxState(title: "eggs"),
     checkboxState(title: "cream"),
     checkboxState(title: "sugar"),
   ];
