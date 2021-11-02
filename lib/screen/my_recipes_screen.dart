@@ -24,6 +24,7 @@ class my_recipes extends StatelessWidget {
           childAspectRatio: 3 / 2,
           crossAxisSpacing: 20,
           mainAxisSpacing: 20,
+          //
         ),
       ),
     );
