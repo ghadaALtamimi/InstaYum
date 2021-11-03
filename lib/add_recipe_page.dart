@@ -45,24 +45,6 @@ class addRecipe extends State<addRecipePage> {
       children: [
         //---------------add photo-------------
         Container(
-          // child: Stack(children: <Widget>[
-          //child: Center(
-          //child: Container(
-          // decoration: BoxDecoration(
-          //   border: Border.only(
-          //       color: Color(
-          //     0xFFeb6d44,
-          //   )),
-          //   borderRadius: BorderRadius.all(
-          //     Radius.circular(5.0),
-          //   ),
-          // ),
-
-          //margin: EdgeInsets.only(top: 30, bottom: 15, left: 10, right: 50),
-          // margin: EdgeInsets.only(
-          //   left: 5,
-          // ),
-
           width: 50,
           height: 80,
           alignment: Alignment.center,
@@ -82,6 +64,8 @@ class addRecipe extends State<addRecipePage> {
             ),
           ),
         ),
+
+        //---------------------------
         Stack(
           children: <Widget>[
             Container(

@@ -14,47 +14,37 @@ class recipe_Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      child: Stack(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Image.network(imageURL),
-          ),
-          // Positioned(
-          // bottom: ,
-          // child:
-          Container(
-            alignment: Alignment.bottomLeft,
-            decoration: BoxDecoration(
-              color: Colors.black45,
-              borderRadius: BorderRadius.all(Radius.circular(15)),
-            ),
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-            child: Text(recipeName,
-                style: TextStyle(fontSize: 15, color: Colors.white)),
-            // ),
-          ),
-        ],
-      ),
-    );
+    final String image = imageURL;
+// this section will return one item of Grid Items that in bookmarked recipes page.
+    return Column(children: [
+      //ClipOval(
+      Container(
+        width: double.infinity,
+        height: 120,
+        decoration: BoxDecoration(
+          color: Colors.grey.shade300,
+        ),
+        child: InkWell(
+          // to make  clickable image
+          onTap: () {}, //what happend after clicking image
 
-    // return InkWell(
-    //   onTap: () {},
-    //   child: Container(
-    //     child: Container(
-    //       child: Text(recipeName,
-    //           style: TextStyle(fontSize: 15, color: Colors.white)),
-    //     ),
-    //     height: 30.0,
-    //     width: MediaQuery.of(context).size.width - 100.0,
-    //     decoration: BoxDecoration(
-    //         borderRadius: BorderRadius.circular(5),
-    //         color: Colors.blue,
-    //         image: DecorationImage(
-    //         image: new NetworkImage(imageURL), fit: BoxFit.fill)),
-    //   ),
-    // );
+          child: Image.network(
+            image,
+            fit: BoxFit.fill,
+          ),
+        ),
+      ),
+
+      Container(
+          // this is for text
+          width: double.infinity,
+          padding: EdgeInsets.only(top: 10),
+          child: Center(
+            child: Text(
+              recipeName,
+              style: TextStyle(fontSize: 14),
+            ),
+          )),
+    ]);
   }
 }

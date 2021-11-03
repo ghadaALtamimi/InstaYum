@@ -18,140 +18,92 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  @override
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  String userUsername = "";
-  String imageURL = "";
+  //---------------- Database -------------------------
+  //   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+//   String userUsername = "";
+//   String imageURL = "";
 
-//getData() to get the data of users like username, image_url from database
-  void getData() async {
-    User user = _firebaseAuth.currentUser;
-    FirebaseFirestore.instance
-        .collection("users")
-        .doc(user.uid)
-        .snapshots()
-        .listen((userData) {
-      setState(() {
-        userUsername = userData.data()['username'];
-        imageURL = userData.data()['image_url'];
-      });
-    });
-  }
+// //getData() to get the data of users like username, image_url from database
+//   void getData() async {
+//     User user = _firebaseAuth.currentUser;
+//     FirebaseFirestore.instance
+//         .collection("users")
+//         .doc(user.uid)
+//         .snapshots()
+//         .listen((userData) {
+//       setState(() {
+//         userUsername = userData.data()['username'];
+//         imageURL = userData.data()['image_url'];
+//       });
+//     });
+//   }
 
-  void initState() {
-    super.initState();
-    getData(); //we call the method here to get the data immediately when init the page.
-  }
+//   void initState() {
+//     super.initState();
+//     getData(); //we call the method here to get the data immediately when init the page.
+//   }
+//----------------------------------------------------------
+
+  // Children with random heights - You can build your widgets of unknown heights here
+  // I'm just passing the context in case if any widgets built here needs  access to context based data like Theme or MediaQuery
 
   Widget build(BuildContext context) {
-    //  final cookingEnthusist = UserPreferences.myCooking_Enthusiast;
-
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  buildImage(),
-                  // ProfileWidget(
-                  //   imagePath: cookingEnthusist.imagePath,
-                  //   onClicked: () async {},
-                  // ),
-                  Text(
-                    userUsername,
-                    style: TextStyle(fontSize: 17, fontFamily: 'Open Sans'),
+      body: DefaultTabController(
+        length: 3,
+
+        // allows you to build a list of elements that would be scrolled away till the body reached the top
+
+        // You tab view goes here
+        child: Column(
+          children: <Widget>[
+            Container(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      ClipOval(
+                        child: Image.asset(
+                          'assets/images/defaultUser.png', fit: BoxFit.cover,
+                          // size of the image
+                          width: 70,
+                          height: 70,
+                        ),
+                        // make the image clickabl
+                      ),
+                      Text('Nora'),
+                    ],
                   ),
-                  Spacer(),
-                  Spacer(),
-                  Spacer(),
+                  Center(
+                    child: FollowersNumbers(),
+                  ),
                 ],
               ),
-              const SizedBox(height: 20),
-              Center(
-                child: FollowersNumbers(),
+            ),
+            TabBar(
+              labelColor: Color(0xFFeb6d44),
+              indicatorColor: Color(0xFFeb6d44),
+              tabs: [
+                Tab(icon: Icon(Icons.table_view), text: ("My recipe")),
+                Tab(
+                    icon: Icon(Icons.assignment_rounded),
+                    text: ("My meal plans")),
+                Tab(icon: Icon(Icons.bookmark), text: ("Bookmarks")),
+              ],
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  //this array for tabs contint
+                  my_recipes(),
+                  // ------------ list item 2 tab view bookmarks screen
+                  my_meal_plans(),
+                  // ------------ list item 3 tab view bookmarks screen
+                  bookmarked_recipes(),
+                ],
               ),
-              SizedBox(height: 15.0),
-              DefaultTabController(
-                length: 3, // length of tabs
-                initialIndex: 0,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    // Building the tab bar
-                    TabBar(
-                      labelColor: Color(0xFFeb6d44),
-                      indicatorColor: Color(0xFFeb6d44),
-                      tabs: [
-                        Tab(
-                          icon: Icon(Icons.assignment_rounded),
-                          text: ("My recipe"),
-                        ),
-                        Tab(
-                          icon: Icon(Icons.table_view),
-                          text: ("My meal plans"),
-                        ),
-                        Tab(
-                          icon: Icon(Icons.bookmark),
-                          text: ("Bookmarks"),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      height: 300, //height of TabBarView
-                      decoration: BoxDecoration(
-                        border: Border(
-                          top: BorderSide(color: Colors.grey, width: 0.5),
-                        ),
-                      ),
-                      // assign my recipes pages ,my_meal_plans
-                      child: TabBarView(
-                        children: <Widget>[
-                          my_recipes(),
-                          my_meal_plans(),
-                          bookmarked_recipes(),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  // Widget buildName(cooking_Enthusiast user) => Container(
-  //       margin: EdgeInsets.all(10),
-  //       child: Column(
-  //         children: [
-  //           Text(
-  //             user.name,
-  //             style: TextStyle(fontSize: 17, fontFamily: 'Open Sans'),
-  //           ),
-  //         ],
-  //       ),
-  //     );
-
-  Widget buildImage() {
-    final image = NetworkImage(imageURL);
-
-    return ClipOval(
-      child: Material(
-        color: Colors.grey.shade400,
-        child: Ink.image(
-          image: image,
-          fit: BoxFit.cover,
-          width: 100,
-          height: 100,
-
-          // child:
-          //     InkWell(onTap: widget.onClicked), // i suggest to delete the edit.
+            ),
+          ],
         ),
       ),
     );
